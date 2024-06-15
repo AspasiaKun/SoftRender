@@ -421,7 +421,7 @@ void SoftRenderer::drawPrimitiveScanLine(const vertex& a, const vertex& b, const
 			coord.y = ((a.coord.y * ret.x + b.coord.y * ret.y + c.coord.y * ret.z) );
 			coord.z = ((a.coord.z * ret.x + b.coord.z * ret.y + c.coord.z * ret.z) );
 
-			float color = shader.shade(ret, normal, light._pos, camera._pos);
+			float color = shader.shade(ret, normal, light.get_pos(), camera.get_pos());
 			colorR *= color; if (colorR > 255) colorR = 255;
 			colorG *= color; if (colorG > 255) colorG = 255;
 			colorB *= color; if (colorB > 255) colorB = 255;

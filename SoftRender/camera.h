@@ -9,7 +9,7 @@
 
 class Camera {
 public:
-	Camera(	point lookfrom,	point lookat,vec4 up): _pos(lookfrom),_target(lookat),_up(up),_postemp(lookfrom),_targettmp(lookat) {}
+	Camera(point lookfrom,	point lookat,vec4 up): _pos(lookfrom),_target(lookat),_up(up),_postemp(lookfrom),_targettmp(lookat) {}
 
 	virtual ~Camera() noexcept{}
 
@@ -17,6 +17,10 @@ public:
 	{
 		_pos = pos;
 		calcMatrix();
+	}
+
+	point& get_pos() {
+		return this->_pos;
 	}
 
 	void setPerspective(float fov, float aspect, float nearZ, float farZ)
@@ -139,11 +143,10 @@ private:
 				0.0f, 0.0f, -_nearZ * _farZ / (_farZ - _nearZ), 0.0f };
 
 		WorldToPerspective = mul(WorldToView,ViewToPerspective);
-
 	}
 
 
-public:
+private:
 	point _pos;
 	point _postemp;
 	point _targettmp;

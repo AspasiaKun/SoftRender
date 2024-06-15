@@ -1,7 +1,5 @@
 #include "shader.h"
 
-
-
 //lambert π‚’’
 float Shader::shade(const point& coord, vec4& normal, vec4& light_pos, vec4& camera_pos) {
 	vec4 lightDir = (light_pos - coord).normalize();
@@ -13,7 +11,6 @@ float Shader::shade(const point& coord, vec4& normal, vec4& light_pos, vec4& cam
 	float ambient = 0.1f;
 
 	//diffuse
-
 	float diffuse = light_intensity / dis * std::max(0.0f, lightDir.dot(normal.normalize()));
 
 	//specular

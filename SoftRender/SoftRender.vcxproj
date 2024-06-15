@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="shader.cpp" />
+    <ClCompile Include="tgaimage.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="camera.h" />
@@ -150,6 +151,7 @@
     <ClInclude Include="SoftRenderer.h" />
     <ClInclude Include="shader.h" />
     <ClInclude Include="ConstUtil.h" />
+    <ClInclude Include="tgaimage.h" />
     <ClInclude Include="vec4.h" />
     <ClInclude Include="vertex.h" />
   </ItemGroup>

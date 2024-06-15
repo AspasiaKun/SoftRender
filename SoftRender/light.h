@@ -8,6 +8,15 @@ class Light {
 public:
 	Light(vec4 pos = { 0.0f,0.0f,0.0f,0.0f }) :_pos(pos) {}
 
+	point& get_pos() {
+		return this->_pos;
+	}
+
+	vec4& get_dir() {
+		return this->_dir;
+	}
+
+private:
 	point _pos;
 	vec4 _dir;
 

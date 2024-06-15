@@ -27,7 +27,7 @@ public:
 	void Zero() { std::memset(&m, 0, sizeof(m)); }
 
 
-	matrix4f operator*(const matrix4f& v)const
+	matrix4f operator*(const matrix4f& v) const
 	{
 		matrix4f mat;
 		for (auto x = 0; x < 4; x++)
