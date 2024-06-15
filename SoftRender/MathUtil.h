@@ -1,9 +1,9 @@
 #pragma once
-#ifndef MATH_H
-#define MATH_H
-#include "SoftRenderer.h"
+#ifndef MATHUTIL_H
+#define MATHUTIL_H
+#include "ConstUtil.h"
 
-namespace Math {
+namespace MathUtil {
 	template <typename T>
 	static T Lerp(const T& v1, const T& v2, float t)
 	{
@@ -35,5 +35,5 @@ namespace Math {
 
 
 
-#endif // !MATH_H
+#endif // !MATHUTIL_H
 

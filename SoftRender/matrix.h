@@ -3,9 +3,9 @@
 #define MATRIX_H
 
 #include "vec4.h"
-#include<cmath>
-#include<algorithm>
-#include<cstring>
+#include <cmath>
+#include <algorithm>
+#include <cstring>
 
 class matrix4f {
 public:

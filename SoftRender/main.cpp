@@ -1,6 +1,6 @@
 #include <windows.h>
 #include <windowsx.h>
-#include "render.h"
+#include "SoftRenderer.h"
 //#include "render_0.h"
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);

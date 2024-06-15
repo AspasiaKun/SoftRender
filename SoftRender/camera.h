@@ -2,9 +2,10 @@
 #ifndef CAMERA_H
 #define CAMERA_H
 
+#include <iostream>
+
 #include "matrix.h"
-#include<iostream>
-#include"SoftRenderer.h"
+#include "ConstUtil.h"
 
 class Camera {
 public:
@@ -111,10 +112,6 @@ public:
 		_target = _target - t * dir.normalize();
 		calcMatrix();
 	}
-
-
-
-
 
 public:
 

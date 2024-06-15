@@ -140,15 +140,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="shader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="camera.h" />
     <ClInclude Include="light.h" />
-    <ClInclude Include="math.h" />
+    <ClInclude Include="MathUtil.h" />
     <ClInclude Include="matrix.h" />
-    <ClInclude Include="render.h" />
-    <ClInclude Include="shader.h" />
     <ClInclude Include="SoftRenderer.h" />
+    <ClInclude Include="shader.h" />
+    <ClInclude Include="ConstUtil.h" />
     <ClInclude Include="vec4.h" />
     <ClInclude Include="vertex.h" />
   </ItemGroup>

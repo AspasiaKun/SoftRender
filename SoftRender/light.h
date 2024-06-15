@@ -1,7 +1,7 @@
 #pragma once
 #ifndef LIGHT_H
 #define LIGHT_H
-#include "SoftRenderer.h"
+#include "ConstUtil.h"
 #include "matrix.h"
 
 class Light {

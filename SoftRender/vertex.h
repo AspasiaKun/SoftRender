@@ -3,7 +3,7 @@
 #define VERTEX_H
 
 #include "vec4.h"
-#include "math.h"
+#include "MathUtil.h"
 #include <iostream>
 
 class vertex{

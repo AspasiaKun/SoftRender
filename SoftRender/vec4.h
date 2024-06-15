@@ -1,7 +1,7 @@
 #pragma once
 #ifndef VEC4_H
 #define VEC4_H
-#include<cmath>
+#include <cmath>
 
 class vec4 {
 public:
