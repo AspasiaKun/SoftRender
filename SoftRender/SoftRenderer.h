@@ -7,6 +7,7 @@
 
 #include "camera.h"
 #include "ConstUtil.h"
+#include "MathUtil.h"
 #include "vertex.h"
 #include "shader.h"
 #include "light.h"
@@ -346,6 +347,7 @@ void SoftRenderer::drawPlane(int lt,int rt,int rb,int lb,std::vector<vertex>& cu
 //绘制一个三角形
 void SoftRenderer::drawPrimitive(const vertex& a, const vertex& b, const vertex& c) {
 	matrix4f m = camera.WorldToPerspective;
+	//Todo: 屏幕外做剔除
 	vec4 p1 = m * a.coord; if (checkCvv(p1)) return;
 	vec4 p2 = m * b.coord; if (checkCvv(p2)) return;
 	vec4 p3 = m * c.coord; if (checkCvv(p3)) return;
@@ -409,7 +411,7 @@ void SoftRenderer::drawPrimitiveScanLine(const vertex& a, const vertex& b, const
 			normal.y = (a.normal.y * ret.x + b.normal.y * ret.y + c.normal.y * ret.z);
 			normal.z = (a.normal.z * ret.x + b.normal.z * ret.y + c.normal.z * ret.z);
 			float depth = (a.coord.z * ret.x + b.coord.z * ret.y + c.coord.z * ret.z);
-			if (g_depthBuff[x + y * g_width] < depth)continue;//比较深度
+			if (g_depthBuff[x + y * g_width] < depth) continue;//比较深度
 			g_depthBuff[x + y * g_width] = depth;
 
 			//vec4 light_pos = camera.WorldToPerspective * light._pos;
@@ -418,8 +420,8 @@ void SoftRenderer::drawPrimitiveScanLine(const vertex& a, const vertex& b, const
 			//Math::perspectiveDivide(camera_pos);
 			vec4 coord;
 			coord.x = ((a.coord.x * ret.x + b.coord.x * ret.y + c.coord.x * ret.z));
-			coord.y = ((a.coord.y * ret.x + b.coord.y * ret.y + c.coord.y * ret.z) );
-			coord.z = ((a.coord.z * ret.x + b.coord.z * ret.y + c.coord.z * ret.z) );
+			coord.y = ((a.coord.y * ret.x + b.coord.y * ret.y + c.coord.y * ret.z));
+			coord.z = ((a.coord.z * ret.x + b.coord.z * ret.y + c.coord.z * ret.z));
 
 			float color = shader.shade(ret, normal, light.get_pos(), camera.get_pos());
 			colorR *= color; if (colorR > 255) colorR = 255;
@@ -453,7 +455,7 @@ void SoftRenderer::drawLine(int x1, int y1, int x2, int y2, unsigned int color) 
 
 	else
 	{
-		//bresenham 算法
+		//bresenham
 		int dx = std::abs(x1 - x2);
 		int dy = std::abs(y1 - y2);
 		int diff = 0;

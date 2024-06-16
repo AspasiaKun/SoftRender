@@ -11,9 +11,18 @@ public:
 
 	vec4(float _x, float _y, float _z){x = _x; y = _y; z = _z; w = 1.0f;}
 
+	vec4(float _x, float _y) { x = _x; y = _y; z = .0f; w = 1.0f; }
+
 	vec4(const vec4& v){*this = v;}
 
 	vec4() { x = y = z = 0.0; w = 1.0; }
+
+	float& operator[](const int i) {
+		if (i == 0) return x;
+		if (i == 1) return y;
+		if (i == 2) return z;
+		if (i == 3) return w;
+	}
 
 	vec4 operator +(const vec4& v) const
 	{
@@ -95,13 +104,14 @@ public:
 {
 	return v * u;
 }
-using point = vec4;
-using Color = vec4;
 
 
 inline vec4 operator -(const vec4 v)
 {
 	return { -v.x,-v.y,-v.z };
 }
+
+using point = vec4;
+using Color = vec4;
 
 #endif // !VEC4_H

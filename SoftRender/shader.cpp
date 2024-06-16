@@ -8,7 +8,7 @@ float Shader::shade(const point& coord, vec4& normal, vec4& light_pos, vec4& cam
 	float dis = (light_pos - coord).Length();
 
 	//ambient
-	float ambient = 0.1f;
+	float ambient = 0.5f;
 
 	//diffuse
 	float diffuse = light_intensity / dis * std::max(0.0f, lightDir.dot(normal.normalize()));
